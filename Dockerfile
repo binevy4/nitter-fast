@@ -18,6 +18,7 @@ WORKDIR /src/
 RUN apk --no-cache add pcre ca-certificates
 COPY --from=nim /src/nitter/nitter ./
 COPY ./nitter.example.conf ./nitter.conf
+COPY ./sessions.jsonl ./sessions.jsonl
 COPY --from=nim /src/nitter/public ./public
 EXPOSE 8080
 RUN adduser -h /src/ -D -s /bin/sh nitter
